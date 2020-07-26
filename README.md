@@ -1,6 +1,11 @@
 # v_covid
 
-A new Flutter project.
+App for monitoring corona case with your devices hihihi....
+it's simple to use.. just open the application then swipe up to see the corona data case
+please download, please develop, but *not for sale
+
+Thanks for the API:
+[https://api.kawalcorona.com](https://api.kawalcorona.com)
 
 ## Getting Started
 
