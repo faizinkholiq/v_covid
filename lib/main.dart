@@ -125,6 +125,7 @@ class _HomePageState extends State<HomePage>{
                           Text("Pencegahan", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),),
                           // Padding(padding: EdgeInsets.only(top:5),),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               preventionContainer('assets/prevention/wash.png', 'Cucilah tangan pakai sabun'),
                               preventionContainer('assets/prevention/close.png', 'Tutup hidung & mulut ketika bersin'),
@@ -231,9 +232,9 @@ class _HomePageState extends State<HomePage>{
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
-                              cardCounter('Confirmed', (model[0]?.confirmed != null)? model[0]?.confirmed : ''),
-                              cardCounter('Recovered', (model[0]?.recovered != null)? model[0]?.recovered : ''),
-                              cardCounter('Deaths', (model[0]?.deaths != null)? model[0]?.deaths : ''),
+                              cardCounter('Confirmed', (model != null)? model[0]?.confirmed : ''),
+                              cardCounter('Recovered', (model != null)? model[0]?.recovered : ''),
+                              cardCounter('Deaths', (model != null)? model[0]?.deaths : ''),
                             ],
                           ),
                         ),
@@ -245,10 +246,12 @@ class _HomePageState extends State<HomePage>{
                             elevation: 5,
                             child: ListView(
                               // crossAxisAlignment: CrossAxisAlignment.start,
-                              children: listOfCase
+                              children: listOfCase != null?listOfCase
                               .map(
                                 ((val) => listCaseProvince(val))
-                              ).toList()
+                              ).toList() : <Widget>[
+                                Text('Data kosyong')
+                              ]
                             ),
                           ),
                               
@@ -288,8 +291,8 @@ class _HomePageState extends State<HomePage>{
 
   Container preventionContainer(images, title) {
     return Container(
-      margin: EdgeInsets.only(left: 10, right: 10, bottom: 5, top:15),
-      width: 100,
+      margin: EdgeInsets.only(left: 8, right: 8, bottom: 5, top:15),
+      width: 90,
       child: Column(
         children: <Widget>[
           Image(
