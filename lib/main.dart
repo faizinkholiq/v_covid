@@ -292,7 +292,7 @@ class _HomePageState extends State<HomePage>{
   Container preventionContainer(images, title) {
     return Container(
       margin: EdgeInsets.only(left: 8, right: 8, bottom: 5, top:15),
-      width: 90,
+      width: 100,
       child: Column(
         children: <Widget>[
           Image(
