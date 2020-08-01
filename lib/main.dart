@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage>{
                           ]
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width*0.85,
+                          width: MediaQuery.of(context).size.width-40,
                           margin: EdgeInsets.only(top: 15),
                           child: RichText(
                             textAlign: TextAlign.start,
@@ -118,14 +118,14 @@ class _HomePageState extends State<HomePage>{
                       ]
                     ),
                     Container(
+                      width: MediaQuery.of(context).size.width-40,
                       margin: EdgeInsets.only(top: 30,),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text("Pencegahan", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),),
-                          // Padding(padding: EdgeInsets.only(top:5),),
+                          Padding(padding: EdgeInsets.only(top: 15),),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: <Widget>[
                               preventionContainer('assets/prevention/wash.png', 'Cucilah tangan pakai sabun'),
                               preventionContainer('assets/prevention/close.png', 'Tutup hidung & mulut ketika bersin'),
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage>{
           ListView(
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(top: 680),
+                margin: EdgeInsets.only(top: MediaQuery.of(context).size.height-110),
                 height: 570,
                 child: Container(
                   decoration: BoxDecoration(
@@ -273,12 +273,13 @@ class _HomePageState extends State<HomePage>{
     final nf = NumberFormat("#,###");
 
     return Container(
-      margin: EdgeInsets.only(left: 20),
+      // color: Colors.black,
+      margin: EdgeInsets.only(left: 20,right: 5),
       child: Column(
         children: <Widget>[
           Row(
             children: <Widget>[
-              Container(margin: EdgeInsets.only(right: 10), width: 130, child: Text((val?.countryRegion != null)? val?.countryRegion: '', style: TextStyle(fontSize: 12,),)),
+              Container(margin: EdgeInsets.only(right: 0), width: MediaQuery.of(context).size.width/3.5, child: Text((val?.countryRegion != null)? val?.countryRegion: '', style: TextStyle(fontSize: 12,),)),
               listCardCounter('Confirmed', (val?.confirmed != null)? nf.format(int.parse(val?.confirmed)): ''),
               listCardCounter('Recovered', (val?.recovered != null)? nf.format(int.parse(val?.recovered)): ''),
               listCardCounter('Deaths', (val?.deaths != null)? nf.format(int.parse(val?.deaths)): ''),
@@ -291,15 +292,17 @@ class _HomePageState extends State<HomePage>{
 
   Container preventionContainer(images, title) {
     return Container(
-      margin: EdgeInsets.only(left: 8, right: 8, bottom: 5, top:15),
-      width: 100,
+      // color: Colors.grey,
+      width: MediaQuery.of(context).size.width/3.4,      
+      height: MediaQuery.of(context).size.height/6,      
       child: Column(
         children: <Widget>[
           Image(
-            width: 90,
+            width: MediaQuery.of(context).size.width/5,
             image: AssetImage(images),
           ),
-          Text(title, style: TextStyle(fontSize: 10), textAlign: TextAlign.center,),
+          Padding(padding: EdgeInsets.only(top:5),),
+          Text(title, style: TextStyle(fontSize: 11), textAlign: TextAlign.center,),
         ],
       ),
     );
